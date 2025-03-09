@@ -32,7 +32,6 @@ export class OcrController {
   @UseInterceptors(FileInterceptor('file', uploadOptions))
   @HttpCode(HttpStatus.OK)
   async extractText(@UploadedFile() file: Express.Multer.File) {
-    console.log(file);
     return await this.ocrService.extractTextFromImage(file);
   }
 }
